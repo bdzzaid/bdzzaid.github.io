@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  jerkyll:
+    image: jekyll/jekyll
+    # First install
+    #command: bash -c "jekyll new zbo/ && cd zbo && jekyll serve --livereload --drafts"
+    command: bash -c "cd zbo && jekyll serve --livereload --drafts"
+    hostname: jekyll-local
+    privileged: true
+    ports:
+      - 4000:4000
+      - 35729:35729
+    volumes:
+      - ./:/srv/jekyll/zbo
